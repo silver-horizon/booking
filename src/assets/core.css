@@ -4,6 +4,10 @@ body {
     margin: 0px;
 }
 
+body{
+    margin-bottom: 1rem;
+}
+
 .container,
 header,
 section {

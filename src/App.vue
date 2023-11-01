@@ -9,13 +9,5 @@
 </template>
 
   <script setup lang="ts">
-  import { RouterLink, RouterView } from 'vue-router'
-  import {ref} from 'vue'
-  import Menubar from 'primevue/menubar';
-
-  const items = ref([
-    {
-        label: 'Home'
-    }
-]);
+  import { RouterView } from 'vue-router';
   </script>

@@ -36,49 +36,56 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue';
+import type { Ref } from 'vue';
+import type {IBookingSummary, IBookingSummaryGroup} from "../type/IBookingSummary";
+
 import Card from 'primevue/card';
 import Badge from 'primevue/badge';
 import Button from 'primevue/button';
 import {useToast} from 'primevue/usetoast';
 
+import BookingService from '../service/BookingService';
+
 const toast = useToast();
 
-const bookings = [{
-  date: new Date(),
-  bookings: [
-    {
-      customerName: "Luke Taylor",
-      time: "11:00",
-      address: "A House, AB1 2CD",
-      totalJobs: 3,
-      totalCost: 100
-    }, {
-      customerName: "Luke Taylor",
-      time: "13:00",
-      address: "A House, AB1 2CD",
-      totalJobs: 1,
-      totalCost: 60
-    }]
-}, {
-  date: new Date(),
-  bookings: [
-    {
-      customerName: "Luke Taylor",
-      time: "11:00",
-      address: "A House, AB1 2CD",
-      totalJobs: 3,
-      totalCost: 100
-    }, {
-      customerName: "Luke Taylor",
-      time: "13:00",
-      address: "A House, AB1 2CD",
-      totalJobs: 1,
-      totalCost: 60
-    }]
-}];
+const bookings: Ref<IBookingSummaryGroup[]> = ref([]);
+const lastBooking = computed(() => {
+  let highestNum = 0;
+
+  bookings.value.forEach((b: IBookingSummaryGroup) => {
+    b.bookings.forEach((booking: IBookingSummary) => {
+      if(highestNum < booking.id){
+        highestNum = booking.id;
+      }
+    });
+  });
+
+  return highestNum;
+})
+
+BookingService.getBookings().then((data: IBookingSummaryGroup[]) => bookings.value = data);
 
 function load(){
-  toast.add({ severity: 'warn', summary: 'No More Bookings', detail: 'No more bookings found', group: 'br', life: 5000 });
-}
+  if(!lastBooking){
+    return;
+  }
 
+  BookingService.getBookingsAfter(lastBooking.value).then((newData: IBookingSummaryGroup[]) => {
+    if(newData.length === 0){
+      toast.add({ severity: 'warn', summary: 'No More Bookings', detail: 'No more bookings found', group: 'br', life: 5000 });
+      return;
+    }
+    
+    newData.forEach(newBooking => {
+      const match = bookings.value.find(x => x.date == newBooking.date);
+
+      if(match != null){
+        match.bookings = match.bookings.concat(newBooking.bookings).sort((a: IBookingSummary, b: IBookingSummary) => a.time.localeCompare(b.time));
+      } else {
+        bookings.value = bookings.value.concat(newBooking).sort((a: IBookingSummaryGroup, b: IBookingSummaryGroup) => a.date.localeCompare(b.date));
+      }
+    });
+  }); 
+}
 </script>

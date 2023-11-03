@@ -38,7 +38,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import type { Ref } from 'vue';
-import type {IBookingSummary, IBookingSummaryGroup} from "../type/IBookingSummary";
+import type {IBookingSummary, IBookingSummaryGroup} from "../type/Bookings";
 
 import Card from 'primevue/card';
 import Badge from 'primevue/badge';
@@ -83,7 +83,7 @@ function load(){
       if(match != null){
         match.bookings = match.bookings.concat(newBooking.bookings).sort((a: IBookingSummary, b: IBookingSummary) => a.time.localeCompare(b.time));
       } else {
-        bookings.value = bookings.value.concat(newBooking).sort((a: IBookingSummaryGroup, b: IBookingSummaryGroup) => a.date.localeCompare(b.date));
+        bookings.value = bookings.value.concat(newBooking).sort((a: IBookingSummaryGroup, b: IBookingSummaryGroup) => a.date.getTime() - b.date.getTime());
       }
     });
   }); 

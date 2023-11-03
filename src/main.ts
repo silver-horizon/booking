@@ -5,7 +5,7 @@ import './assets/main.css';
 
 import { createApp } from 'vue';
 import PrimeVue from 'primevue/config';
-import ToastService from 'primevue/ToastService';
+import ToastService from 'primevue/toastservice';
 import App from './App.vue';
 import router from './router';
 

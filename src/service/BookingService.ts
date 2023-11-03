@@ -104,8 +104,19 @@ export default {
           lat: 53.48822641661979, 
           lng: -2.24370500828662
         },
-        jobs: [],
-        totalCost: 0
+        jobs: [{
+          id: 1,
+          description: "Replace Front Nearside Tyre",
+          complete: false,
+          cost: 58
+        }, {
+          id: 2,
+          description: "Replace Back Nearside Tyre",
+          complete: false,
+          cost: 58
+        }],
+        totalCost: 0,
+        status: "Not Started"
       }
     }
 };

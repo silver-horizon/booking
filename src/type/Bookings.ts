@@ -23,11 +23,21 @@ export interface IAddress{
     lng: number
 }
 
+export interface IJob{
+    id: number,
+    complete: boolean,
+    cost: number,
+    description: string
+}
+
+export type BookingStatus = "Not Started" | "In Progress" | "Complete";
+
 export interface IBooking {
     id: number,
     customerName: string,
     time: string,
     address: IAddress,
-    jobs: [],
-    totalCost: number
+    jobs: IJob[],
+    totalCost: number,
+    status: BookingStatus
 }

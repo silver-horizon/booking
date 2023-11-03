@@ -7,7 +7,7 @@
 
   <RouterView />
 
-  <Toast position="bottom-right" group="br" />
+  <Toast group="br" />
 </template>
 
   <script setup lang="ts">

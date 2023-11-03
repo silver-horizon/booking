@@ -2,6 +2,7 @@ import 'primeflex/primeflex.css';
 import 'primevue/resources/themes/lara-light-teal/theme.css';
 import './assets/core.css';
 import './assets/main.css';
+import './assets/animation.css';
 
 import { createApp } from 'vue';
 import PrimeVue from 'primevue/config';

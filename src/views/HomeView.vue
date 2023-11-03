@@ -6,7 +6,8 @@
       <p class="separator">{{ date.date.toLocaleDateString() }}</p>
 
       <div class="row row-cols-1 row-cols-lg-2">
-        <div v-for="booking in date.bookings" >
+        <TransitionGroup name="list">
+        <div v-for="booking in date.bookings" :key="booking.id">
         <Card class="mb-3 relative hover">
           <template #title>{{ booking.time }} - {{ booking.customerName }}</template>
           <template #content>
@@ -26,6 +27,7 @@
           </template>
         </Card>
         </div>
+        </TransitionGroup>
       </div>
     </div>
 

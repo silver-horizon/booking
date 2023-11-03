@@ -3,8 +3,10 @@ export interface IBookingSummary {
     customerName: string,
     time: string,
     address: string,
+    lat: number,
+    lng: number
     totalJobs: number,
-    totalCost: number
+    totalCost: number,
 }
 
 export interface IBookingSummaryGroup {
@@ -16,7 +18,9 @@ export interface IAddress{
     line1: string,
     line2?: string,
     city: string,
-    postcode: string
+    postcode: string,
+    lat: number,
+    lng: number
 }
 
 export interface IBooking {

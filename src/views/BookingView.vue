@@ -5,6 +5,9 @@
             <h2>{{ booking.customerName }} @ {{ booking.time }}</h2>
 
             <div class="row">
+                <div class="col-12 col-lg-6">
+                    <Map :lat="booking.address.lat" :lng="booking.address.lng"></Map>
+                </div>
                 <div class="col-12 col-lg-6 order-lg-2">
                     <Card class="mb-3">
                         <template #title>Customer Details</template>
@@ -26,6 +29,7 @@ import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 import BookingService from '../service/BookingService';
 import Card from 'primevue/card';
+import Map from '../components/Map.vue';
 
 
 const booking: Ref<IBooking | null> = ref(null);

@@ -9,3 +9,18 @@ header {
   padding: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
+.map-container {
+  width: 100%;
+  height: 100%;
+} 
+
+.map-container.large-map{
+  min-height: 50vh;
+}
+
+@media screen and (min-width: 992px){
+  .map-container.large-map{
+    min-height: 500px;
+  }
+}

@@ -17,14 +17,18 @@ const data = [{
         time: "11:00",
         address: "A House, AB1 2CD",
         totalJobs: 3,
-        totalCost: 100
+        totalCost: 100,
+        lat: 53.48822641661979, 
+        lng: -2.24370500828662
       }, {
         id: 2,
         customerName: "Luke Taylor",
         time: "13:00",
         address: "A House, AB1 2CD",
         totalJobs: 1,
-        totalCost: 60
+        totalCost: 60,
+        lat: 53.48822641661979, 
+        lng: -2.24370500828662
       }]
   }, {
     date: addDay(new Date(), 3),
@@ -35,14 +39,18 @@ const data = [{
         time: "11:00",
         address: "A House, AB1 2CD",
         totalJobs: 3,
-        totalCost: 100
+        totalCost: 100,
+        lat: 53.48822641661979, 
+        lng: -2.24370500828662
       }, {
         id: lastId,
         customerName: "Luke Taylor",
         time: "13:00",
         address: "A House, AB1 2CD",
         totalJobs: 1,
-        totalCost: 60
+        totalCost: 60,
+        lat: 53.48822641661979, 
+        lng: -2.24370500828662
       }]
   }, {
     date: today,
@@ -53,14 +61,18 @@ const data = [{
         time: "12:00",
         address: "A House, AB1 2CD",
         totalJobs: 3,
-        totalCost: 100
+        totalCost: 100,
+        lat: 53.48822641661979, 
+        lng: -2.24370500828662
       }, {
         id: 6,
         customerName: "Luke Taylor",
         time: "15:00",
         address: "A House, AB1 2CD",
         totalJobs: 1,
-        totalCost: 60
+        totalCost: 60,
+        lat: 53.48822641661979, 
+        lng: -2.24370500828662
       }]
   }];
 
@@ -88,7 +100,9 @@ export default {
           line1: "A House",
           line2: "A Street",
           city: "A City",
-          postcode: "AB1 2CD"
+          postcode: "AB1 2CD",
+          lat: 53.48822641661979, 
+          lng: -2.24370500828662
         },
         jobs: [],
         totalCost: 0

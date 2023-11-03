@@ -13,7 +13,7 @@
               <template #content>
                 <div class="row row-cols-2">
                   <div>
-                    <p>- map goes here -</p>
+                    <Map :inline="true" :lat="booking.lat" :lng="booking.lng" :zoom="13"></Map>
                   </div>
                   <div>
                     <p>{{ booking.address }}</p>
@@ -46,6 +46,7 @@ import type { IBookingSummary, IBookingSummaryGroup } from "../type/Bookings";
 import Card from 'primevue/card';
 import Badge from 'primevue/badge';
 import Button from 'primevue/button';
+import Map from '@/components/Map.vue';
 import { useToast } from 'primevue/usetoast';
 
 import BookingService from '../service/BookingService';

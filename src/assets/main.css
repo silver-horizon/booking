@@ -16,11 +16,11 @@ header {
 } 
 
 .map-container.large-map{
-  min-height: 50vh;
+  min-height: 100px;
 }
 
 @media screen and (min-width: 992px){
   .map-container.large-map{
-    min-height: 500px;
+    min-height: 300px;
   }
 }

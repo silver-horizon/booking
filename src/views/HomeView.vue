@@ -21,7 +21,7 @@
                     <p>
                       <Badge size="large" :value="`£${booking.totalCost}`" />
                     </p>
-                    <a class="stretched-link" href="#"><Button severity="info">Go</Button></a>
+                    <RouterLink :to="{name: 'booking', params: {bookingID: booking.id}}" class="stretched-link" href="#"><Button severity="info">Go</Button></RouterLink>
                   </div>
                 </div>
               </template>
@@ -39,6 +39,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import { RouterLink } from 'vue-router';
 import type { Ref } from 'vue';
 import type { IBookingSummary, IBookingSummaryGroup } from "../type/Bookings";
 

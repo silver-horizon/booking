@@ -64,7 +64,7 @@ const data = [{
       }]
   }];
 
-import type { IBookingSummaryGroup } from "../type/Bookings";
+import type { IBookingSummaryGroup, IBooking } from "../type/Bookings";
 
 export default {
     async getBookings(): Promise<IBookingSummaryGroup[]>{
@@ -77,5 +77,21 @@ export default {
         }
 
         return [];
+    },
+
+    async getBooking(id: number): Promise<IBooking>{
+      return {
+        id,
+        customerName: "Luke Taylor",
+        time: "15:00",
+        address: {
+          line1: "A House",
+          line2: "A Street",
+          city: "A City",
+          postcode: "AB1 2CD"
+        },
+        jobs: [],
+        totalCost: 0
+      }
     }
 };
